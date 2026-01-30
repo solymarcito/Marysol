@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'SF Pro', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.messages {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: opacity 0.5s ease-out;
+}
+
+.messages.fade-out {
+    opacity: 0;
+}
+
+.message {
+    background-color: #e9e9eb;
+    color: #000000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1.5rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    align-self: flex-start;
+    max-width: 90%;
+    position: relative;
+}
+
+.message::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: 0;
+    width: 20px;
+    height: 25px;
+    background-color: #e9e9eb;
+    border-bottom-right-radius: 16px;
+}
+
+.message::after {
+    content: '';
+    position: absolute;
+    left: -26px;
+    bottom: 0;
+    width: 26px;
+    height: 25px;
+    background-color: #ffffff;
+    border-bottom-right-radius: 10px;
+}
+
+.message a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.message.sent {
+    background-color: #0B93F6;
+    color: #ffffff;
+    align-self: flex-end;
+}
+
+.message.sent::before {
+    left: auto;
+    right: -7px;
+    background-color: #0B93F6;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 16px;
+}
+
+.message.sent::after {
+    left: auto;
+    right: -26px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 10px;
+}
+
+.message.sent a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.typing-indicator {
+    display: flex;
+    gap: 0.4rem;
+    padding: 1rem 1.2rem;
+    border-radius: 1.5rem;
+    position: relative;
+}
+
+.typing-indicator.typing-left {
+    align-self: flex-start;
+    background-color: #e9e9eb;
+}
+
+.typing-indicator.typing-left::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: 0;
+    width: 20px;
+    height: 25px;
+    background-color: #e9e9eb;
+    border-bottom-right-radius: 16px;
+}
+
+.typing-indicator.typing-left::after {
+    content: '';
+    position: absolute;
+    left: -26px;
+    bottom: 0;
+    width: 26px;
+    height: 25px;
+    background-color: #ffffff;
+    border-bottom-right-radius: 10px;
+}
+
+.typing-indicator.typing-right {
+    align-self: flex-end;
+    background-color: #0B93F6;
+}
+
+.typing-indicator.typing-right::before {
+    content: '';
+    position: absolute;
+    left: auto;
+    right: -7px;
+    bottom: 0;
+    width: 20px;
+    height: 25px;
+    background-color: #0B93F6;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 16px;
+}
+
+.typing-indicator.typing-right::after {
+    content: '';
+    position: absolute;
+    left: auto;
+    right: -26px;
+    bottom: 0;
+    width: 26px;
+    height: 25px;
+    background-color: #ffffff;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 10px;
+}
+
+.typing-indicator span {
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: #666;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-indicator.typing-right span {
+    background-color: #ffffff;
+    opacity: 0.7;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-0.5rem);
+        opacity: 1;
+    }
+}
+
+.typing-indicator.hidden {
+    display: none;
+}
+
