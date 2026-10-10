@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Marysol Alape Toro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Special+Elite&display=swap">
+  <link rel="stylesheet" href="css/desktop.css">
+</head>
+<body>
+  <header class="menubar">
+    <span class="menubar-logo" aria-hidden="true">✿</span>
+    <b>marysol</b>
+    <span>file</span>
+    <span>edit</span>
+    <span>view</span>
+    <div class="menubar-right">
+      <button id="sound-toggle" aria-pressed="true">♪ sound on</button>
+      <span id="clock"></span>
+    </div>
+  </header>
+
+  <div class="desk" id="desk">
+    <span class="sparkle" style="left: 38%; top: 14%">✦</span>
+    <span class="sparkle" style="left: 56%; top: 44%; animation-delay: 1s">✦</span>
+    <span class="sparkle" style="left: 12%; top: 58%; animation-delay: 2s">✧</span>
+    <span class="sparkle" style="left: 64%; top: 12%; animation-delay: 0.5s">✧</span>
+
+    <nav class="icons" aria-label="Desktop">
+      <button class="icon" data-open="about" style="--x: 26px; --y: 46px">
+        <span class="icon-art doc"><b>TXT</b></span><span class="icon-label">about-me.txt</span>
+      </button>
+      <button class="icon" data-open="work" style="--x: 124px; --y: 54px">
+        <span class="icon-art folder"><i>✦</i></span><span class="icon-label">work</span>
+      </button>
+      <button class="icon" data-open="shpetinas" style="--x: 30px; --y: 160px">
+        <span class="icon-art folder"><i>♥</i></span><span class="icon-label">shpetinas</span>
+      </button>
+      <button class="icon" data-open="cmu" style="--x: 128px; --y: 170px">
+        <span class="icon-art folder"><i>✎</i></span><span class="icon-label">cmu</span>
+      </button>
+      <button class="icon" data-open="cali" style="--x: 34px; --y: 276px">
+        <span class="icon-art folder"><i>☀</i></span><span class="icon-label">cali</span>
+      </button>
+      <button class="icon" data-open="goals" style="--x: 126px; --y: 286px">
+        <span class="icon-art folder"><i>★</i></span><span class="icon-label">goals</span>
+      </button>
+      <button class="icon" data-open="resume" style="--x: 30px; --y: 392px">
+        <span class="icon-art doc pdf"><b>PDF</b></span><span class="icon-label">resume.pdf</span>
+      </button>
+      <button class="icon" data-open="contact" style="--x: 128px; --y: 400px">
+        <span class="icon-art envelope"></span><span class="icon-label">say-hi</span>
+      </button>
+    </nav>
+
+    <div class="keepsakes">
+      <figure class="keepsake polaroid" id="polaroid">
+        <div class="polaroid-photo">your photo<br>booth pic here ✿</div>
+        <figcaption>me, probably late</figcaption>
+      </figure>
+
+      <div class="keepsake receipt" id="receipt">
+        <h3>MARYSOL.EXE</h3>
+        <div class="receipt-center">cali → pittsburgh</div>
+        <div class="receipt-center" id="receipt-date"></div>
+        <hr>
+        <div class="receipt-row"><span>amazon swe intern</span><span>x2</span></div>
+        <div class="receipt-row"><span>shpetinas founded</span><span>1</span></div>
+        <div class="receipt-row"><span>rising star award</span><span>1</span></div>
+        <div class="receipt-row"><span>jane street insights</span><span>1</span></div>
+        <div class="receipt-row"><span>curiosity</span><span>∞</span></div>
+        <hr>
+        <div class="receipt-row"><span>first-gen</span><span>PRICELESS</span></div>
+        <div class="receipt-row receipt-total"><span>TOTAL</span><span>pa'lante ✿</span></div>
+        <hr>
+        <div class="receipt-center">thank u for visiting!</div>
+      </div>
+
+      <div class="keepsake player" id="player">
+        <div class="player-top">
+          <div class="player-cover" aria-hidden="true">✿</div>
+          <div>
+            <div class="player-title">lo-fi to debug to</div>
+            <div class="player-artist">marysol's mix</div>
+          </div>
+        </div>
+        <div class="player-progress"><span></span></div>
+        <div class="player-times"><span>0:47</span><span>-1:52</span></div>
+        <div class="player-controls">
+          <button aria-label="Previous">⏮</button>
+          <button id="play-button" aria-label="Play">▶</button>
+          <button aria-label="Next">⏭</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint">click anything ✿</div>
+  </div>
+
+  <div class="notifications" id="notifications" aria-live="polite"></div>
+
+  <nav class="dock" aria-label="Dock">
+    <button class="dock-finder" title="finder" data-open="work">✿</button>
+    <button class="dock-notes" title="notes" data-open="about">✎</button>
+    <button class="dock-messages" title="messages" id="dock-messages">💬</button>
+    <button class="dock-music" title="music" id="dock-music">♫</button>
+    <button class="dock-mail" title="mail" data-open="contact">✉</button>
+    <button class="dock-trash" title="trash" data-open="trash">🗑</button>
+  </nav>
+
+  <script src="js/content.js"></script>
+  <script src="js/desktop.js"></script>
+</body>
+</html>
