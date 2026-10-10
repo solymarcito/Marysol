@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             // Hide messages after fade completes
                             setTimeout(function() {
                                 messagesContainer.style.display = 'none';
+                                window.location.href = 'desktop.html';
                             }, 500);
                         }, 1000);
                     }, 1500);
