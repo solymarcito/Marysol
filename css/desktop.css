@@ -711,6 +711,27 @@ button {
   color: #5f525b;
 }
 
+.finder-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.finder-photos img {
+  max-width: 150px;
+  max-height: 190px;
+  object-fit: cover;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(90, 30, 70, 0.2);
+  transform: rotate(-1.5deg);
+}
+
+.finder-photos img:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
 .finder-item-year {
   font-size: 11px;
   font-weight: 400;
@@ -735,6 +756,8 @@ button {
   box-shadow: 0 6px 12px rgba(120, 90, 20, 0.15);
 }
 
+.sticky-photo { padding: 6px; background: #fff !important; }
+.sticky-photo img { display: block; width: 100%; height: auto; }
 .sticky:nth-child(2) { background: #ffd6e5; transform: rotate(2deg); }
 .sticky:nth-child(3) { background: #d6ecff; transform: rotate(-1deg); }
 
@@ -777,6 +800,11 @@ button {
 
 .resume-link {
   margin-top: 16px;
+}
+
+.resume-link a {
+  color: var(--rose);
+  font-weight: 600;
 }
 
 /* Mail */

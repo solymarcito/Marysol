@@ -296,7 +296,11 @@ function renderFolder(win, key) {
   let content;
   if (folder.stickies) {
     content = `<div class="stickies">${folder.stickies
-      .map((note) => `<div class="sticky">${withPlaceholders(note)}</div>`)
+      .map((note) =>
+        typeof note === "string"
+          ? `<div class="sticky">${withPlaceholders(note)}</div>`
+          : `<div class="sticky sticky-photo"><img src="${note.img}" alt="${escapeHtml(note.alt || "")}" loading="lazy"></div>`
+      )
       .join("")}</div>`;
   } else {
     content = `<div class="finder-items">${folder.items
@@ -307,6 +311,13 @@ function renderFolder(win, key) {
           <div>
             <h3>${escapeHtml(item.title)} ${item.year ? `<span class="finder-item-year">· ${item.year}</span>` : ""}</h3>
             <p>${withPlaceholders(item.text)}</p>
+            ${
+              item.photos
+                ? `<div class="finder-photos">${item.photos
+                    .map((p) => `<img src="${p.src}" alt="${escapeHtml(p.alt || "")}" loading="lazy">`)
+                    .join("")}</div>`
+                : ""
+            }
           </div>
         </div>`
       )
@@ -359,6 +370,10 @@ function openResume() {
     )
     .join("");
 
+  const resumeLink = RESUME.link.startsWith("[")
+    ? withPlaceholders(RESUME.link)
+    : `<a href="${RESUME.link}" target="_blank" rel="noopener">open full resume (pdf) ↗</a>`;
+
   createWindow(
     "resume",
     "resume.pdf",
@@ -366,7 +381,7 @@ function openResume() {
       <h2>${RESUME.name}</h2>
       <p class="resume-subtitle">${withPlaceholders(RESUME.subtitle)}</p>
       ${sections}
-      <p class="resume-subtitle resume-link">${withPlaceholders(RESUME.link)}</p>
+      <p class="resume-subtitle resume-link">${resumeLink}</p>
     </div>`,
     460
   );
@@ -556,7 +571,4 @@ function showAirDrop() {
   });
 }
 
-document.getElementById("dock-messages").addEventListener("click", playIntroMessages);
-
-playIntroMessages();
 setTimeout(showAirDrop, 5200);
